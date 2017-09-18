@@ -1,0 +1,42 @@
+ + smallest.c  main.c                                                  X
+ 21                 *ptr_d++ = *from;
+ 22                 to = NULL;
+ 23             } else if (ptr_s == from) {
+ 24                 ptr_s++;
+ 25             } else {
+ 26                 *ptr_d++ = *ptr_s++;
+ 27             }
+ 28         }
+ 29     }
+ 30     *ptr_d = '\0';
+ 31
+ 32     return strtoll(out, (char**) NULL, 10);
+ 33 }
+ 34
+ 35 long long* smallest(long long n) {
+ 36     char n_chr[MAX_SZ];
+ 37     long long *res = malloc(NUM_ANS*sizeof(long long));
+ 38
+ 39     snprintf(n_chr, MAX_SZ, "%lld", n);
+ 40     *(res+1) = 99999999;
+ 41     *(res+2) = 99999999;
+ 42
+ 43 }
+ 44
+ 45 /*
+ 46 long long* smallest(long long n) {
+ 47     char n_chr[MAX_SZ];
+ 48     long long *res = malloc(NUM_ANS*sizeof(long long));
+ 49     char *ptr_0 = n_chr;
+ 50     char *ptr_1 = ptr_0+1;
+ 51     char *ptr_f = NULL;
+ 52     char *ptr_t = NULL;
+ 53     ptrdiff_t from = 0;
+ 54     ptrdiff_t to = 0;
+ 55
+ 56     snprintf(n_chr, MAX_SZ, "%lld", n);
+ 57
+ 58     while (*ptr_1) {
+ 59         char smst = (*ptr_0)-1;
+smallest.c [+]                                        40,11          27%
+

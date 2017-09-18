@@ -1,0 +1,21 @@
+/* rank poker problem */
+clear;
+
+S := [1, 1, 1, 8, 64];
+
+for i:=1 to 5 do
+for j:=1 to 5 do
+for k:=1 to 5 do
+for l:=1 to 5 do
+for m:=1 to 5 do
+    sum := S[i]+S[j]+S[k]+S[l]+S[m];
+    if (sum mod 5) eq 0 then
+        printf "%o %o %o %o %o (%o)\n",\
+        S[i],S[j],S[k],S[l],S[m],sum;
+    end if;
+end for;
+end for;
+end for;
+end for;
+end for;
+

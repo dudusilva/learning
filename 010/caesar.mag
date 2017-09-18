@@ -1,0 +1,60 @@
+/* caesar cypher problem */
+clear;
+
+function share(n)
+    d := n div 5;
+    b := 5*d;
+    e := n-b;
+    
+    A := [d, d, d, d, d+e];
+    
+    if (e ne 0) then 
+        if (A[5] gt 4) then 
+            max := 4;
+        else
+            max := A[5];
+        end if;
+        
+        for i:=1 to max do A[i] := A[i] + 1; end for;
+        A[5] := A[5] - max;
+    end if;
+
+    print e, n mod 5;
+    return A;
+end function;
+
+for i:=1 to 15 do
+    A := share(i);
+    printf "%o: %o\n", i, A;
+end for;
+
+
+
+
+
+
+
+
+
+
+
+
+function share_v0(n)
+    d := n div 5;
+    b := 5*d;
+    e := n-b;
+    
+    A := [d, d, d, d, d+e];
+
+    if (A[5] gt A[4]) then 
+        if (A[5] ge 4) then
+            for i:=1 to 4 do A[i] := A[i] + 1; end for;
+            A[5] := A[5] - 4;
+        else
+            for i:=1 to A[5] do A[i] := A[i] + 1; end for;
+            A[5] := 0;
+        end if;
+    end if;
+
+    return A;
+end function;

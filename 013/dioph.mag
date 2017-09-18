@@ -1,0 +1,34 @@
+/* diophantine equation problem */
+clear;
+
+n := 5;
+sqt := Floor(Sqrt(n));
+
+S := [];
+for i:=1 to sqt do
+    if (n mod i) eq 0 then
+        al := i;
+        be := n div i;
+
+        if ((al+be) mod 2) eq 0 then
+            x := (al+be) div 2;
+            if ((be-x) mod 2) eq 0 then
+                y := (be-x) div 2;
+                Append(~S, [x, y]);
+            end if;
+        end if;
+    end if;
+end for;
+
+if #S gt 0 then
+    for i:=1 to #S do
+        equ := S[i][1]^2 - 4*S[i][2]^2;
+        chk := equ eq n;
+        if chk eq false then
+            break;
+        end if;
+    end for;
+
+    print "chk", chk;
+    S;
+end if;
