@@ -19,13 +19,40 @@ function share(n)
         A[5] := A[5] - max;
     end if;
 
-    print e, n mod 5;
     return A;
 end function;
 
-for i:=1 to 15 do
+function share2(n)
+    d := n div 5;
+    m := n mod 5;
+
+    A := [ d : x in {1..5} ];
+
+    if m ne 0 then
+        nn := n - 4*d;
+
+        for i:=1 to 4 do
+            if nn ne 0 then
+                A[i] +:= 1;
+                nn -:= 1;
+            end if;
+        end for;
+
+        A[5] := nn;
+    end if;
+
+    return A; 
+end function;
+
+for i:=1 to 5000 do
     A := share(i);
-    printf "%o: %o\n", i, A;
+    B := share2(i);
+
+    if A ne B then
+        print "A", A;
+        print "B", B;
+        print i;
+    end if;
 end for;
 
 
